@@ -3,7 +3,7 @@ PRACTICE Exam 1, problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Valerie Galluzzi, Mark Hays, Amanda Stouder, Aaron Wilkin,
-         their colleagues, and PUT_YOUR_NAME_HERE.
+         their colleagues, and Nihaar Munnamgi.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
@@ -102,8 +102,21 @@ def problem2a(circle, rectangle, window):
       :type rectangle: rg.Rectangle
       :type window:    rg.RoseWindow
     """
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
+    line = rg.Line(rectangle.get_upper_right_corner(),rectangle.get_lower_left_corner())
+    line.attach_to(window)
+    line.arrow = 'last'
+    window.render()
+    window.continue_on_mouse_click()
+    circle.fill_color = rectangle.outline_color
+    window.render()
+
+
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -111,6 +124,7 @@ def problem2a(circle, rectangle, window):
     #    DIFFICULTY:      6
     #    TIME ESTIMATE:   10 to 15 minutes.
     # -------------------------------------------------------------------------
+
 
 def run_test_problem2b():
     """ Tests the  problem2b   function. """
@@ -173,6 +187,14 @@ def problem2b(rect, n, delta, win):
       :type delta:  int
       :type win:    rg.RoseWindow
     """
+    rect.attach_to(win)
+
+    for k in range(n - 1):
+        rectangle = rg.Rectangle(rg.Point(rect.get_upper_left_corner().x - delta * (k + 1),rect.get_upper_left_corner().y  - delta * (k + 1)),rg.Point(rect.get_lower_right_corner().x + delta * (k + 1),(rect.get_lower_right_corner().y + delta * (k + 1))))
+        rectangle.attach_to(win)
+        win.render()
+
+
     # -------------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #          Tests have been written for you (above).

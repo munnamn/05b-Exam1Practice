@@ -631,6 +631,7 @@ class _ShapeWithThickness(object):
 
 class _ShapeWithText(object):
     """
+
     A Shape that has text and a font for displaying that text.
 
     This abstract type has concrete subclasses that include:
